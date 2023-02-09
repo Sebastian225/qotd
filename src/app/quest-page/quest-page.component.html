@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <div class="title">
+        <h3 class="highlight">Chapter One</h3>
+        <h2>The Defense of Strahnbrad</h2>
+    </div>
+    <div class="main-quests-container">
+        <h2 class="highlight">Main Quests</h2>        
+        <ng-container *ngFor="let quest of quests">
+            <app-quest *ngIf="!quest.isOptional" [quest]="quest" [ngClass]="{'quest-highlight': selectedQuest === quest}" (click)="selectQuest(quest)"></app-quest>
+        </ng-container>
+    </div>
+    <div class="optional-quests-container">
+        <h2 class="highlight">Optional Quests</h2>
+        <ng-container *ngFor="let quest of quests">
+            <app-quest *ngIf="quest.isOptional" [quest]="quest" [ngClass]="{'quest-highlight': selectedQuest === quest}" (click)="selectQuest(quest)"></app-quest>
+        </ng-container>
+    </div>
+    <div class="description">
+        <p class="highlight">{{ selectedQuest.title }}</p>
+        <div class="description-text">
+            <p>
+                {{ selectedQuest.description }}
+            </p>
+        </div>
+    </div>
+</div>

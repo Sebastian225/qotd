@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <div class="title">
+        <h2>Settings</h2>
+    </div>
+    <select name="race" id="race" [(ngModel)]="race" (ngModelChange)="changeRace()">
+        <option value="human">human</option>
+        <option value="orc">orc</option>
+        <option value="undead">undead</option>
+        <option value="elf">elf</option>
+    </select>
+</div>

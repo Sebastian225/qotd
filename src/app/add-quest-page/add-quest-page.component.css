@@ -1,0 +1,28 @@
+.wrapper {
+    padding-top: 10px;
+}
+
+.title {
+    text-align: center;
+}
+
+h2, h3 {
+    font-weight: normal;
+    margin: 0;
+}
+
+.form-field {
+    margin: 1em 0;
+}
+
+label {
+    text-align: right;
+    display: inline-block;
+    width: 33%;
+    margin: 0 1em;
+    vertical-align: top;
+}
+
+.submit {
+    margin: 1em auto;
+}

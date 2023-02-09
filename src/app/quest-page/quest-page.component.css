@@ -1,0 +1,41 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content 200px 1fr;
+    gap: 0.7rem;
+
+    padding: 10px 27px;
+}
+
+.title {
+    text-align: center;
+    grid-column: span 2;
+}
+
+h2, h3 {
+    font-weight: normal;
+    margin: 0;
+}
+
+.description {
+    grid-column: span 2;
+}
+
+.description > p {
+    margin: 0px;
+}
+
+.description-text {
+    /* border: 1px solid #a8a838;
+    border-radius: 5px; */
+    background-color: #111111;
+    background-image: url(../../assets/img/description.png);
+    width: 981px;
+    height: 235px;
+    padding: 15px;
+    white-space: pre-line;
+}
+
+.description-text > p {
+    margin: 0;
+}

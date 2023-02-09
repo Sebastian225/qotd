@@ -1,0 +1,23 @@
+div {
+    /* border: 1px solid #a8a838;
+    border-radius: 5px; */
+    /* background-color: #111111; */
+    background-image: url(../../assets/img/quest_background.png);
+    width: 382px;
+    height: 40px;
+    padding-top: 0.75em;
+    padding-left: 20px;
+    margin: 10px 0px;
+}
+
+div:hover {
+    cursor: pointer;
+}
+
+:host.quest-highlight > div {
+    /* background-color: #192c4d5d; */
+    background-image: var(--quest-highlight);
+}
+p{
+    margin: 0;
+}

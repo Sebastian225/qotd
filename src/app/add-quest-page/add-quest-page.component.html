@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div class="title">
+        <h2>Add a Quest</h2>
+    </div>
+    <div class="form-field">
+        <label for="title">Title:</label>
+        <input class="input" type="text" name="title" id="title" [(ngModel)]="quest.title"/>
+    </div>
+    <div class="form-field">
+        <label for="description">Description:</label>
+        <textarea class="textarea" name="description" id="description" [(ngModel)]="quest.description"></textarea>
+    </div>
+    <div class="form-field">
+        <label for="is-optional">Optional:</label>
+        <div class="checkbox" (click)="quest.isOptional = !quest.isOptional">
+            <div class="check-mark" *ngIf="quest.isOptional"></div>
+        </div>
+        <input class="hidden" type="checkbox" name="is-optional" id="is-optional" [(ngModel)]="quest.isOptional"/>
+    </div>
+    <a routerLink=""><div class="btn highlight submit" (click)="addQuest()">Add</div></a>
+</div>
+
