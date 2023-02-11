@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,13 +9,24 @@ import { AuthService } from '../auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  userLoggedIn: boolean;
+  userLoggedIn: boolean = false;
 
-  constructor(private _authService: AuthService) {
-    this.userLoggedIn = _authService.userLoggedIn;
+  constructor(private afAuth: AngularFireAuth, private authService: AuthService) {
+    this.afAuth.onAuthStateChanged((user) => {
+      if(user) {
+        this.userLoggedIn = true;
+      }
+      else {
+        this.userLoggedIn = false;
+      }
+    })
   }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.authService.logoutUser();
   }
 
 }

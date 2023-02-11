@@ -1,1 +1,33 @@
-<p>register-page works!</p>
+<div class="wrapper">
+    <div class="title">
+        <h2>Sign up</h2>
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()" autocomplete="off">
+        <div class="form-field">
+            <label for="title">Email:</label>
+            <input autocomplete="off" class="input" type="text" name="email" id="email" formControlName="email"/>
+        </div>
+        <div class="form-field">
+            <label for="title">Password:</label>
+            <input autocomplete="off" class="input" type="password" name="password" id="password" formControlName="password"/>
+        </div>
+        <div class="form-field">
+            <label for="title">Confirm password:</label>
+            <input autocomplete="off" class="input" type="password" name="confirm-password" id="confirm=password" formControlName="confirm-password"/>
+        </div>
+        <button [disabled]="signupForm.invalid"><div class="btn highlight submit" [ngClass]="{'btn-disabled': signupForm.invalid}">Sign up</div></button>
+    </form>
+
+    <div class="warnings">
+        <p *ngIf="signupForm.controls['email'].hasError('email')">Please provide a valid email address.</p>
+        <p *ngIf="signupForm.controls['password'].hasError('minlength')">Your password must contain at least 6 characters.</p>
+        <p *ngIf="anyFieldEmpty()">Please complete all the fields.</p>
+        <p *ngIf="signupForm.hasError('notSame')">Passwords don't match.</p>
+    </div>
+
+    <div class="login">
+        <p>Already have an account?</p>
+        <a routerLink="/login"><div class="btn highlight">Log in</div></a> 
+    </div>    
+</div>
+

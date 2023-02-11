@@ -1,5 +1,9 @@
-<nav>
-    <a routerLink="add"><div class="btn highlight">Add Quests</div></a>
+<nav *ngIf="userLoggedIn">
     <a routerLink=""><div class="btn highlight">View Quests</div></a>
-    <a routerLink="settings" *ngIf="userLoggedIn"><div class="btn highlight">Settings</div></a>
+    <a routerLink="/add"><div class="btn highlight">Add Quests</div></a>    
+    <a routerLink="/settings"><div class="btn highlight">Settings</div></a>
+
+    <div>   
+        <a (click)="logout()"><div class="btn highlight">Log out</div></a>
+    </div>    
 </nav>

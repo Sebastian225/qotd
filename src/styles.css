@@ -1,1 +1,110 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "Friz Quadrata TT";
+    src: url(./assets/fonts/Friz-Quadrata-TT-Regular.ttf) format("truetype");
+}
+
+:root {
+    --text-highlight: #fcd211;
+    --main-background: #000e2b;
+    
+    --main-background: url(./assets/img/human_main.png);
+    --button: url(./assets/img/human_button.png);
+    --button-highlight: url(./assets/img/human_button_highlight.png);
+    --quest-highlight: url(./assets/img/human_quest_highlight.png);
+}
+
+body{
+    background-color: #000;
+    color: #fff;
+    font-family: "Friz Quadrata TT";
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: #6a726a;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+p{
+    font-size: 120%;
+}
+
+.main-container {
+    /* background-color: var(--main-background); */
+    /* width: 60%; */
+    width: 1065px;
+    height: 667px;
+    background-image: var(--main-background);
+    margin: 3vh auto 0px auto;
+    padding: 40px;
+}
+
+.btn {
+    /* background-color: darkblue; */
+    background-image: var(--button);
+    text-align: center;
+    padding-top: 15px;
+    width: 346px;
+    height: 29px;
+}
+
+.btn:hover {
+    background-image: var(--button-highlight);
+}
+
+.btn-disabled:hover {
+    background-image: var(--button);
+}
+
+.highlight {
+    color: var(--text-highlight);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.checkbox {
+    display: inline-block;
+    background-image: url(./assets/img/checkbox.png);
+    width: 58px;
+    height: 58px;
+}
+
+.check-mark {
+    background-image: url(./assets/img/check.png);
+    width: 58px;
+    height: 58px;
+}
+
+.input {
+    background-image: url(./assets/img/input.png);
+    width: 285px;
+    height: 55px;
+    color:#fff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px;
+    padding: 0px 15px;
+}
+
+.textarea {
+    background-image: url(./assets/img/textarea.png);
+    width: 285px;
+    height: 158px;
+    color:#fff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px;
+    padding: 15px;
+    resize: none;
+}
+
+.input:focus-visible, .textarea:focus-visible{
+    outline: 0px;
+}

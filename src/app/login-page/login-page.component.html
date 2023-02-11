@@ -2,7 +2,7 @@
     <div class="title">
         <h2>Log in</h2>
     </div>
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" >
         <div class="form-field">
             <label for="title">Email:</label>
             <input autocomplete="off" class="input" type="text" name="email" id="email" formControlName="email"/>
@@ -13,4 +13,9 @@
         </div>
         <button><div class="btn highlight submit">Log in</div></button>
     </form>
+
+    <div class="register">
+        <p>Don't have an account?</p>
+        <a routerLink="/register"><div class="btn highlight">Register</div></a> 
+    </div>    
 </div>

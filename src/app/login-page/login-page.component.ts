@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,20 +10,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPageComponent implements OnInit {
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup = new UntypedFormGroup({
+    'email': new UntypedFormControl('', [Validators.required, Validators.email]),
+    'password': new UntypedFormControl('', Validators.required)
+  });
 
-  constructor() {
-    this.loginForm = new FormGroup({
-      'email': new FormControl('', [Validators.required, Validators.email]),
-      'password': new FormControl('', Validators.required)
-    })
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   login(): void {
-    alert("da")
+    var email = this.loginForm.controls['email'].value;
+    var password = this.loginForm.controls['password'].value;
+    //console.log(email, password);
+
+    this.authService.loginUser(email, password).catch()
   }
+
+
 
 }

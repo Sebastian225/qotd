@@ -29,3 +29,16 @@ button {
     display: block;
     margin: 1em auto;
 }
+
+.register{
+    margin: 10px;
+}
+
+.register > p{
+    margin-bottom: 5px;
+}
+
+a {
+    display: block;
+    width: fit-content;
+}
