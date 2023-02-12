@@ -17,6 +17,11 @@
         </div>
         <input class="hidden" type="checkbox" name="is-optional" id="is-optional" [(ngModel)]="quest.isOptional"/>
     </div>
-    <a routerLink=""><div class="btn highlight submit" (click)="addQuest()">Add</div></a>
+    <div class="form-field">
+        <label for="deadline">Should be done in (hours):</label>
+        <input class="input" type="number" name="deadline" id="deadline" [(ngModel)]="nrHours"/>
+    </div>
+    <p *ngIf="invalidDeadline()">The number of hours should be between 0 and 24.</p>
+    <button [disabled]="invalidDeadline()" (click)="addQuest()"><div class="btn highlight submit" [ngClass]="{'btn-disabled': invalidDeadline()}" >Done</div></button>
 </div>
 

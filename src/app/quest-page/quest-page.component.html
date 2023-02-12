@@ -6,21 +6,28 @@
     <div class="main-quests-container">
         <h2 class="highlight">Main Quests</h2>        
         <ng-container *ngFor="let quest of quests">
-            <app-quest *ngIf="!quest.isOptional" [quest]="quest" [ngClass]="{'quest-highlight': selectedQuest === quest}" (click)="selectQuest(quest)"></app-quest>
+            <app-quest *ngIf="!quest.isOptional" [quest]="quest" 
+                [ngClass]="{'quest-highlight': selectedQuest === quest, 'completed': quest.isCompleted}" (click)="selectQuest(quest)"></app-quest>
         </ng-container>
     </div>
     <div class="optional-quests-container">
         <h2 class="highlight">Optional Quests</h2>
         <ng-container *ngFor="let quest of quests">
-            <app-quest *ngIf="quest.isOptional" [quest]="quest" [ngClass]="{'quest-highlight': selectedQuest === quest}" (click)="selectQuest(quest)"></app-quest>
+            <app-quest *ngIf="quest.isOptional" [quest]="quest" 
+                [ngClass]="{'quest-highlight': selectedQuest === quest, 'completed': quest.isCompleted}" (click)="selectQuest(quest)"></app-quest>
         </ng-container>
     </div>
     <div class="description">
-        <p class="highlight">{{ selectedQuest.title }}</p>
+        <p class="highlight">{{ selectedQuest.title }} <span *ngIf="selectedQuest.isCompleted"> - done</span></p>
         <div class="description-text">
             <p>
                 {{ selectedQuest.description }}
             </p>
+            <p *ngIf="!quests.length">No active quests for today.</p>
         </div>
+    </div>
+    <div class="options">
+        <div class="btn highlight" (click)="completeQuest()">Complete</div>
+        <div class="btn highlight" (click)="editQuest()">Edit</div>
     </div>
 </div>

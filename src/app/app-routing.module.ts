@@ -10,7 +10,7 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   { path: "", component: QuestPageComponent, canActivate: [AuthGuard]  },
   { path: 'quest', component: QuestPageComponent, canActivate: [AuthGuard]  },
-  { path: 'add', component: AddQuestPageComponent, canActivate: [AuthGuard]  },
+  { path: 'add/:id', component: AddQuestPageComponent, canActivate: [AuthGuard]  },
   { path: 'settings', component: SettingsPageComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },

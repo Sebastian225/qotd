@@ -8,17 +8,20 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class AuthService {
 
   userLoggedIn: boolean = false;
+  userId: string = ""
 
   constructor(private afAuth: AngularFireAuth, private router: Router) {
-    this.afAuth.onAuthStateChanged((user) => {
+    this.afAuth.onAuthStateChanged( (user) => {
       if(user) {
         this.userLoggedIn = true;
+        this.userId = user.uid;
       }
       else {
         this.userLoggedIn = false;
         this.router.navigate(['login']);
+        this.userId = "";
       }
-    })
+    });
   }
 
   signupUser(email: string, password: string): Promise<any>{
@@ -45,5 +48,10 @@ export class AuthService {
 
   logoutUser(){
     this.afAuth.signOut();
+  }
+
+  get currentUserId(): string {
+    //return this.isAuthenticated ? this.authState.uid : null;
+    return this.userId;
   }
 }

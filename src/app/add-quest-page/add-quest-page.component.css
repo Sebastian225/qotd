@@ -26,3 +26,10 @@ label {
 .submit {
     margin: 1em auto;
 }
+
+button {
+    background-color: #00000000;
+    border-color: #00000000;
+    display: block;
+    margin: 1em auto;
+}

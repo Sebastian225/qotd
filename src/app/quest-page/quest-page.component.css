@@ -39,3 +39,13 @@ h2, h3 {
 .description-text > p {
     margin: 0;
 }
+
+.options {
+    grid-column: span 2;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.options > div {
+    display: inline-block;
+}
