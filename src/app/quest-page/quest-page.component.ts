@@ -12,6 +12,7 @@ export class QuestPageComponent implements OnInit {
 
   quests: QuestDto[] = []
   selectedQuest: QuestDto = new QuestDto();
+  date: Date = new Date;
 
   constructor(private questService: QuestService, private router: Router) { }
 
